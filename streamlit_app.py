@@ -36,12 +36,10 @@ COLORS = {
     "CHART_5": "#075e54",
 }
 
-TYPE_DOMAIN = ["Text", "Image", "Audio", "Video"]
+TYPE_DOMAIN = ["Image", "Video"]
 TYPE_COLORS = [
     COLORS["CHART_1"],
     COLORS["CHART_2"],
-    COLORS["CHART_3"],
-    COLORS["CHART_4"],
 ]
 
 
@@ -140,12 +138,8 @@ def build_usage_summary_rows(usage: list[dict[str, Any]]) -> list[dict[str, Any]
 
 def parse_usage_type(endpoint: Any) -> str | None:
     endpoint_value = str(endpoint or "").lower()
-    if "text" in endpoint_value:
-        return "Text"
     if "image" in endpoint_value:
         return "Image"
-    if "audio" in endpoint_value:
-        return "Audio"
     if "video" in endpoint_value:
         return "Video"
     return None
